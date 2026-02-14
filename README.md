@@ -18,11 +18,6 @@ Optional background music that plays when you click Open
 
 How to use
 
-Download or clone the project
-
-git clone https://github.com/yourusername/for-you-valentine.git
-
-
 
 Click Open ❤️ and follow the prompt
 
