@@ -40,7 +40,3 @@ Google Fonts: Playfair Display and Inter
 License
 
 Feel free to use this, share it, or customize it. Spread some love. 
-
-If you like, I can also add a short “How to share this” section so anyone opening it will know how to send it to their special person in a really cute way.
-
-Do you want me to do that?
