@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For You ❤️</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- INTRO SCREEN -->
+  <section class="intro">
+    <p class="fade">Hey…</p>
+    <p class="fade delay1">I made something</p>
+    <p class="fade delay2">Just for you</p>
+    <button id="enter">Open ❤️</button>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <main class="hidden">
+
+    <!-- NAME REVEAL -->
+    <section class="hero">
+      <h1>This is for <span id="name">you</span></h1>
+      <p>From someone who cares deeply.</p>
+    </section>
+
+    <!-- LOVE LETTER -->
+    <section class="letter">
+      <p class="reveal">
+        I don’t know how to explain it properly, but loving you feels like calm after noise.
+      </p>
+      <p class="reveal">
+        You make ordinary days feel lighter, and heavy days feel survivable.
+      </p>
+      <p class="reveal">
+        This isn’t about Valentine’s Day. It’s about you.
+      </p>
+    </section>
+
+    <!-- INTERACTIVE HEART -->
+    <section class="tap">
+      <p>Tap the heart </p>
+      <div id="heart">❤️</div>
+      <p id="secret" class="hidden">
+        If I had to choose again, I’d still choose you.
+      </p>
+    </section>
+
+    <!-- CLOSING -->
+    <section class="closing">
+      <h2>Happy Valentine’s Day</h2>
+      <p>Courtesy oF Igri Emmanuel @DevwithEmmy01 </p>
+    </section>
+
+  </main>
+
+  <!-- OPTIONAL MUSIC -->
+  <audio id="music" src="assets/music.mp3" loop></audio>
+
+  <!-- Script -->
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+
+    const enterBtn = document.getElementById("enter");
+    const intro = document.querySelector(".intro");
+    const main = document.querySelector("main");
+    const nameSpan = document.getElementById("name");
+    const music = document.getElementById("music");
+
+    // ENTER BUTTON
+    enterBtn.addEventListener("click", () => {
+      const name = prompt("Who is this for?");
+      if (name && name.trim() !== "") nameSpan.textContent = name;
+
+      intro.style.display = "none";
+      main.classList.remove("hidden");
+
+      if (music) music.play().catch(() => console.log("Audio autoplay blocked"));
+    });
+
+    // SCROLL REVEAL FOR LETTER
+    const reveals = document.querySelectorAll(".reveal");
+
+    const revealOnScroll = () => {
+      reveals.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+          el.style.opacity = 1;
+          el.style.transform = "translateY(0)";
+        }
+      });
+    };
+
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
+
+    // HEART CLICK SECRET
+    const heart = document.getElementById("heart");
+    const secret = document.getElementById("secret");
+
+    heart.addEventListener("click", () => {
+      secret.classList.remove("hidden");
+    });
+
+  });
+  </script>
+
+</body>
+</html>
